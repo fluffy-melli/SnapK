@@ -17,7 +17,9 @@ fun allDisplays(screen: Map<Int, Rectangle>): BufferedImage {
     var height = 0
 
     for (rect in screen) {
-        width += rect.value.width
+        if (width < rect.value.width + rect.value.x) {
+            width = rect.value.width + rect.value.x
+        }
         if (height < rect.value.height + rect.value.y) {
             height = rect.value.height + rect.value.y
         }
